@@ -16,7 +16,7 @@ The `get_code.py` script is designed to retrieve and save the source code of Eth
 ### Prerequisites
 
 - Python 3.x
-- `requests` library: You can install it using `pip install requests`.
+- `requests` library: You can install it using `pip3 install requests`.
 
 ### Usage
 
@@ -24,13 +24,13 @@ The `get_code.py` script is designed to retrieve and save the source code of Eth
 
    - **With a Contract Name**: If you provide a contract name as an argument, the script will fetch and save the source code for that specific contract.
      ```bash
-     python get_code.py <contract_name>
+     python3 get_code.py <contract_name>
      ```
      Replace `<contract_name>` with the desired contract name from the predefined list in the script.
 
    - **Without a Contract Name**: If no argument is provided, the script will process all contracts listed in the `contract_addresses` dictionary.
      ```bash
-     python get_code.py
+     python3 get_code.py
      ```
 
 2. **API Key**: The script uses a hardcoded API key for Etherscan. Ensure that the key is valid and has the necessary permissions to access the API.
