@@ -40,7 +40,7 @@ The `get_code.py` script is designed to retrieve and save the source code of Eth
 - **Single-File Contracts**: The source code will be saved as a `.sol` file named after the contract.
 - **Multi-File Contracts**: The source code will be saved in a directory named after the contract, with each file saved in its respective path as defined in the contract's source.
 
-## Unique Files
+## unique_files.py
 
 The `unique_files.py` script is designed to identify and manage duplicate Solidity files within a specified directory. It calculates the MD5 hash of each file to determine if files are identical, even if they have the same name but different content.
 
@@ -76,7 +76,5 @@ The `unique_files.py` script is designed to identify and manage duplicate Solidi
 
 - The script specifically processes Solidity files (`.sol`) and removes comments before hashing to ensure accurate comparison.
 - Files with names starting with `crytic-export_` are excluded from processing.
-
-
 - If the contract address is not found in the dictionary, the script will print an error message and exit.
 - If the Etherscan API returns an error, the script will print the error message and exit.
