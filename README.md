@@ -43,7 +43,3 @@ The `get_code.py` script is designed to retrieve and save the source code of Eth
 
 - If the contract address is not found in the dictionary, the script will print an error message and exit.
 - If the Etherscan API returns an error, the script will print the error message and exit.
-
-### Example
-
-To fetch and save the source code for the `router` contract, run:
