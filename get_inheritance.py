@@ -137,7 +137,14 @@ def main():
     # List of Solidity files to analyze
     sol_files_list = [
 
-      #"contract": "contract file path",..
+      """
+      Sample file list (REPLACE) : 
+        "CometProxyAdmin/contracts/CometProxyAdmin.sol",
+        "Configurator/contracts/Configurator.sol",
+        "ConfiguratorProxy/contracts/ConfiguratorProxy.sol",
+        "CometWithExtendedAssetList/contracts/CometWithExtendedAssetList.sol",
+        
+      """
 
     ]
     
