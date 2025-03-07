@@ -72,9 +72,59 @@ The `unique_files.py` script is designed to identify and manage duplicate Solidi
 - **Unique Filenames**: The script prints a list of unique filenames to the console.
 - **CSV Report**: If enabled, a CSV file is created, listing all unique filenames.
 
+## sloc_to_csv.py
+
+### Overview
+
+The `sloc_to_csv.py` script counts the Source Lines of Code (SLOC) for a list of files and outputs the results to a CSV file. It's designed to work with a list of filenames provided in a CSV file, which makes it useful for batch processing and analyzing code metrics across multiple files or projects.
+
+### Features
+
+- Count SLOC for multiple files listed in a CSV input file
+- Handle files with or without directory prefixes
+- Skip comments and empty lines when counting SLOC
+- Output results to a CSV file for further analysis
+- Search for files recursively in specified directories
+
+### Prerequisites
+
+- Python 3.x
+- Standard Python libraries: `re`, `csv`, `sys`, `os`
+
+### Usage
+
+bash
+python3 sloc_to_csv.py <file_list.csv> [output_file.csv] [search_directory]
+
+- `<file_list.csv>`: Required. A CSV file containing a list of filenames to process (first column).
+- `[output_file.csv]`: Optional. The output CSV file name (default: `sloc_count.csv`).
+- `[search_directory]`: Optional. The directory to search for files (default: current directory).
+
+### Example
+
+bash
+python3 sloc_to_csv.py duplicate_files_report.csv sloc_results.csv .
+
+
+This command will:
+1. Read filenames from `duplicate_files_report.csv`
+2. Search for these files in the current directory
+3. Count SLOC for each file
+4. Write the results to `sloc_results.csv`
+
+### How It Works
+
+1. The script reads a list of filenames from the input CSV file.
+2. For each filename:
+   - If the filename contains a prefix (e.g., `dir_file.sol`), it looks for `file.sol` in the `dir` directory.
+   - Otherwise, it searches for the file in all subdirectories.
+3. For each found file, it counts the SLOC by:
+   - Skipping empty lines
+   - Ignoring single-line comments (`//`)
+   - Handling multi-line comments (`/* */`)
+4. The results are written to the output CSV file with columns for filename and SLOC count.
+
 ### Notes
 
-- The script specifically processes Solidity files (`.sol`) and removes comments before hashing to ensure accurate comparison.
-- Files with names starting with `crytic-export_` are excluded from processing.
-- If the contract address is not found in the dictionary, the script will print an error message and exit.
-- If the Etherscan API returns an error, the script will print the error message and exit.
+- Files not found will be included in the output with 0 SLOC.
+- The script can also parse output from an external SLOC counting tool if provided via stdin or a file.
