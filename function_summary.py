@@ -4,7 +4,14 @@ import csv
 
 # List of Solidity files to analyze
 sol_files_list = [
-    # Contract Path goes here for each file 
+     """
+      Sample file list (REPLACE) : 
+        "CometProxyAdmin/contracts/CometProxyAdmin.sol",
+        "Configurator/contracts/Configurator.sol",
+        "ConfiguratorProxy/contracts/ConfiguratorProxy.sol",
+        "CometWithExtendedAssetList/contracts/CometWithExtendedAssetList.sol",
+        
+      """
 ]
 
 def generate_slither_report(sol_file_path):
